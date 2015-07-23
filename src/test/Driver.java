@@ -7,9 +7,11 @@ import java.util.Set;
 
 public class Driver {
 	public static void main(String[] args) {
-		Scrabble wordScorer=new Scrabble();
+		Scrabble scrabble=new Scrabble();
 		String word="dream_";
-		Set<String> words=wordScorer.findMaximumScoreWord(word.toCharArray());
+		
+		Set<String> words=scrabble.findMaximumScoreWords(word.toCharArray());
+		
 		Iterator<String> it=words.iterator();
 		while(it.hasNext()){
 			System.out.println(it.next());

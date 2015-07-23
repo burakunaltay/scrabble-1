@@ -27,7 +27,7 @@ public class Scrabble {
 		dictionary = createHashedDictionary();
 	}
 
-	public Set<String> findMaximumScoreWord(char[] letters) {
+	public Set<String> findMaximumScoreWords(char[] letters) {
 
 		for (int i = letters.length; i >= 1; i--) {
 			ArrayList<String> words = generateAnagram(letters, i);
