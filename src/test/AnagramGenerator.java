@@ -28,16 +28,16 @@ public class AnagramGenerator {
 		listOfWords = new ArrayList<String>();
 	}
 
-	private void convertToUpperCase(char[] letters) {
-		for (int i = 0; i < letters.length; i++) {
-			letters[i] = Character.toUpperCase(letters[i]);
-		}
-	}
-
 	public ArrayList<String> findWords() {
 		generateWords(0);
 		
 		return listOfWords;
+	}
+
+	private void convertToUpperCase(char[] letters) {
+		for (int i = 0; i < letters.length; i++) {
+			letters[i] = Character.toUpperCase(letters[i]);
+		}
 	}
 
 	private void generateWords(int index) {
