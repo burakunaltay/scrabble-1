@@ -45,7 +45,7 @@ public class Scrabble {
 
 	private Set<String> createHashedDictionary() {
 		Set<String> dictionary = new HashSet<String>();
-		File file = new File("sowpods.txt");
+		File file = new File(ScrabbleProperties.DICTIONARY_PATH);
 		BufferedReader reader;
 
 		try {
