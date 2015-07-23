@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 public class AnagramGenerator {
 	private static final Character START_LETTER = 'a';
+	private static final Integer NUMBER_OF_ALPHABETS = 26;
+	private static final Character EMPTY_TILE = '_';
+	
 	private ArrayList<String> listOfWords;
 	private char[] letters;
 	private char[] word;
@@ -20,7 +23,7 @@ public class AnagramGenerator {
 		}
 
 		convertToUpperCase(letters);
-		
+
 		word = new char[numberOfLetters];
 		listOfWords = new ArrayList<String>();
 	}
@@ -33,6 +36,7 @@ public class AnagramGenerator {
 
 	public ArrayList<String> findWords() {
 		generateWords(0);
+		
 		return listOfWords;
 	}
 
@@ -41,14 +45,15 @@ public class AnagramGenerator {
 			listOfWords.add(convertCharacterArrayToString(word));
 			return;
 		}
+
 		for (int i = 0; i < letters.length; i++) {
 			if (usedLetters[i]) {
 				continue;
 			}
 			usedLetters[i] = true;
 
-			if (letters[i] == '_') {
-				for (int j = 0; j < 26; j++) {
+			if (letters[i] == EMPTY_TILE) {
+				for (int j = 0; j < NUMBER_OF_ALPHABETS; j++) {
 					word[index] = (char) (START_LETTER + j);
 					generateWords(index + 1);
 				}
@@ -56,6 +61,7 @@ public class AnagramGenerator {
 				word[index] = letters[i];
 				generateWords(index + 1);
 			}
+			
 			usedLetters[i] = false;
 		}
 	}

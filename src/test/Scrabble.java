@@ -16,7 +16,7 @@ import java.util.Set;
 
 public class Scrabble {
 	private static final Character INITIAL_CHARACTER = 'A';
-
+	
 	Set<String> maximumScoreWords;
 	private int maxScore;
 	Set<String> dictionary;
@@ -57,9 +57,11 @@ public class Scrabble {
 		try {
 			reader = new BufferedReader(new FileReader(file));
 			String word;
+			
 			while ((word = reader.readLine()) != null) {
 				dictionary.add(word.toLowerCase());
 			}
+			
 			reader.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -81,9 +83,11 @@ public class Scrabble {
 			if (Character.isLowerCase(characterArray[i])) {
 				continue;
 			}
+			
 			score += eachCharacterScore[Character
 					.toUpperCase(characterArray[i]) - INITIAL_CHARACTER];
 		}
+		
 		return score;
 	}
 

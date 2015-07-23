@@ -8,7 +8,7 @@ import java.util.Set;
 public class Driver {
 	public static void main(String[] args) {
 		Scrabble wordScorer=new Scrabble();
-		String word="a_t_tyj";
+		String word="dream_";
 		Set<String> words=wordScorer.findMaximumScoreWord(word.toCharArray());
 		Iterator<String> it=words.iterator();
 		while(it.hasNext()){
