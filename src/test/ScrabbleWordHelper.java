@@ -8,14 +8,14 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-public class Scrabble {
+public class ScrabbleWordHelper {
 	private static final Character INITIAL_CHARACTER = 'A';
 	
 	Set<String> maximumScoreWords;
 	private int maxScore;
 	Set<String> dictionary;
 
-	public Scrabble() {
+	public ScrabbleWordHelper() {
 		maximumScoreWords = new HashSet<String>();
 		maxScore = Integer.MIN_VALUE;
 		dictionary = createHashedDictionary();
