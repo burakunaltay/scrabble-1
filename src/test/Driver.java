@@ -9,7 +9,7 @@ import java.util.Set;
 
 public class Driver {
 	public static void main(String[] arguments) {
-		Scrabble scrabble = new Scrabble();
+		ScrabbleWordHelper scrabble = new ScrabbleWordHelper();
 		String word = "_a_";
 
 		Set<String> words = scrabble.findMaximumScoreWords(word.toCharArray());
