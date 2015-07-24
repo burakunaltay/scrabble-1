@@ -5,14 +5,13 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Set;
-
 import org.junit.Test;
 
 public class ScrabbleTest {
 
 	@Test
 	public void scrabbleTest() {
-		Scrabble scrabble = new Scrabble();
+		ScrabbleWordHelper scrabble = new ScrabbleWordHelper();
 		String letters = "dreamz";
 		String word = "";
 		Set<String> words = scrabble.findMaximumScoreWords(letters.toCharArray());
@@ -26,7 +25,7 @@ public class ScrabbleTest {
 	@Test
 	public void scrabbleWithBlankTilesTest() {
 		String [] outputValues ={"amazed","mazard","mazed"};
-		Scrabble scrabble = new Scrabble();
+		ScrabbleWordHelper scrabble = new ScrabbleWordHelper();
 		String letters = "dreamz_";
 		String word = "";
 		int i=0;

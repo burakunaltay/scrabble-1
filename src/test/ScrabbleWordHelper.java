@@ -10,15 +10,20 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
-public class Scrabble {
+public class ScrabbleWordHelper {
 	private static final Character INITIAL_CHARACTER = 'A';
 	
 	Set<String> wordsWithMaximumScore;
 	private int maxScore;
 	Map<String, Integer> dictionary;
 
+<<<<<<< HEAD:src/test/Scrabble.java
 	public Scrabble() {
 		wordsWithMaximumScore = new HashSet<String>();
+=======
+	public ScrabbleWordHelper() {
+		maximumScoreWords = new HashSet<String>();
+>>>>>>> f69a5bc2ae3ead4d12af38a80fdbf47af4b09ba2:src/test/ScrabbleWordHelper.java
 		maxScore = Integer.MIN_VALUE;
 		dictionary = createDictionary();
 	}

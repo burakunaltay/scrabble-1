@@ -1,5 +1,1 @@
-# scrabble
-
-Computing the best word possible from the number of total lettersthat have been specified.
-
-Keeping in mind the scoring rules valid in scrabble with a differential scoring system for diffrent letters
+Given a set of 7 letters find the word with maximum score. Score the word using the scrabble scoring system.
