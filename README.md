@@ -1,6 +1,6 @@
 # scrabble
 
-Computing the best word possible from the number of total lettersthat have been specified.
+Computing the best word possible from the number of total letters (7 letters) that have been specified.
 
 Keeping in mind the scoring rules valid in scrabble with a differential scoring system for different letters
 
