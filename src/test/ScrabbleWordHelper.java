@@ -17,13 +17,9 @@ public class ScrabbleWordHelper {
 	private int maxScore;
 	Map<String, Integer> dictionary;
 
-<<<<<<< HEAD:src/test/Scrabble.java
-	public Scrabble() {
-		wordsWithMaximumScore = new HashSet<String>();
-=======
+
 	public ScrabbleWordHelper() {
 		maximumScoreWords = new HashSet<String>();
->>>>>>> f69a5bc2ae3ead4d12af38a80fdbf47af4b09ba2:src/test/ScrabbleWordHelper.java
 		maxScore = Integer.MIN_VALUE;
 		dictionary = createDictionary();
 	}
