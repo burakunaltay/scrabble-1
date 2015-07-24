@@ -1,16 +1,12 @@
 package test;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.util.Iterator;
-import java.util.Properties;
 import java.util.Set;
 
 public class Driver {
 	public static void main(String[] args) {
 		Scrabble scrabble = new Scrabble();
-		String word = "_a_";
+		String word = "piedz";
 
 		Set<String> words = scrabble.findMaximumScoreWords(word.toCharArray());
 

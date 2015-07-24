@@ -4,21 +4,23 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Set;
 
 public class Scrabble {
 	private static final Character INITIAL_CHARACTER = 'A';
 	
-	Set<String> maximumScoreWords;
+	Set<String> wordsWithMaximumScore;
 	private int maxScore;
-	Set<String> dictionary;
+	Map<String, Integer> dictionary;
 
 	public Scrabble() {
-		maximumScoreWords = new HashSet<String>();
+		wordsWithMaximumScore = new HashSet<String>();
 		maxScore = Integer.MIN_VALUE;
-		dictionary = createHashedDictionary();
+		dictionary = createDictionary();
 	}
 
 	public Set<String> findMaximumScoreWords(char[] letters) {
@@ -30,21 +32,23 @@ public class Scrabble {
 			while (it.hasNext()) {
 				String word = it.next();
 				if (isValidWord(word)) {
-					int score = calculateScore(word);
+					int score=dictionary.get(word.toUpperCase());
 					updateMaximumScore(word, score);
 				}
 			}
 		}
-		return maximumScoreWords;
+		return wordsWithMaximumScore;
 	}
-
+	public Integer getMaximumScore(){
+		return maxScore;
+	}
 	private ArrayList<String> generateAnagram(char[] letters,
 			int numberOfLetters) {
 		return (new AnagramGenerator(numberOfLetters, letters)).findWords();
 	}
 
-	private Set<String> createHashedDictionary() {
-		Set<String> dictionary = new HashSet<String>();
+	private Map<String, Integer> createDictionary() {
+		Map<String, Integer> dictionary = new HashMap<String, Integer>();
 		File file = new File(ScrabbleProperties.DICTIONARY_PATH);
 		BufferedReader reader;
 
@@ -53,7 +57,7 @@ public class Scrabble {
 			String word;
 			
 			while ((word = reader.readLine()) != null) {
-				dictionary.add(word.toLowerCase());
+				dictionary.put(word.toUpperCase(), calculateScore(word.toUpperCase()));
 			}
 			
 			reader.close();
@@ -64,7 +68,7 @@ public class Scrabble {
 	}
 
 	private boolean isValidWord(String word) {
-		return dictionary.contains(word.toLowerCase());
+		return dictionary.containsKey(word.toUpperCase());
 	}
 
 	private int calculateScore(String word) {
@@ -87,11 +91,11 @@ public class Scrabble {
 
 	private void updateMaximumScore(String word, int score) {
 		if (score == maxScore) {
-			maximumScoreWords.add(word.toLowerCase());
+			wordsWithMaximumScore.add(word.toLowerCase());
 		} else if (score > maxScore) {
 			maxScore = score;
-			maximumScoreWords = new HashSet<String>();
-			maximumScoreWords.add(word.toLowerCase());
+			wordsWithMaximumScore = new HashSet<String>();
+			wordsWithMaximumScore.add(word.toLowerCase());
 		}
 	}
 }
